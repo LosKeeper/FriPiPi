@@ -4,6 +4,12 @@
         android:label="fripipi"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBNuHxjHgy7wTXGtgbPGkVsfBCJtsiBHOk"
+            />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -19,8 +25,6 @@
             <meta-data
               android:name="io.flutter.embedding.android.NormalTheme"
               android:resource="@style/NormalTheme"
-              android:name="com.google.android.geo.API_KEY"
-              android:value="AIzaSyBNuHxjHgy7wTXGtgbPGkVsfBCJtsiBHOk"
               />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
