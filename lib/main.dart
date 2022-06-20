@@ -78,7 +78,14 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     // Get curent position
-    Position currentLocation = _determinePosition();
+    Future<Position> currentLocation = _determinePosition();
+    double lat, lng;
+    lat = 47.32146104845665;
+    lng = 5.042387118248696;
+    currentLocation.then((value) {
+      lat = value.latitude;
+      lng = value.longitude;
+    });
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -87,9 +94,9 @@ class _MyAppState extends State<MyApp> {
         ),
         body: GoogleMap(
           onMapCreated: _onMapCreated,
-          initialCameraPosition: const CameraPosition(
-            target: LatLng(currentLocation.lat, currentLocation.lng),
-            zoom: 2,
+          initialCameraPosition: CameraPosition(
+            target: LatLng(lat, lng),
+            zoom: 13,
           ),
           markers: _markers.values.toSet(),
         ),
